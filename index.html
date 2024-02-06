@@ -4,9 +4,49 @@
   <head>
    <title>Virus Slayer</title>
    <meta name="viewport" content="width=device-width,initial-scale=1">
+   <style>
+    canvas{
+     position: absolute;
+     top: 0px;
+     left: 0px;
+     width:100%;
+     height:100%;
+     background-color: black;
+    }
+   </style>
   </head>
   <body>
+   <canvas>
 
+   </canvas>
+   <script>
+    // Global Var
+    let canvas = document.querySelector("canvas");
+    let ctx = canvas.getContext("2d");
+    let mouse = {x:0,y:0}
+     // mencEGAH WINDOW STRECTCHING
+     canvas.height = window.innerHeight;
+     canvas.width = window.innerWidth;
+    window.addEventListener("resize",()=>{
+     canvas.width = window.innerWidth;
+     canvas.height = window.innerHeight;
+     update();
+    })
+    function update(){
+    }
+    canvas.addEventListener("mousemove",(event)=>{
+     mouse.x = event.x;
+     mouse.y = event.y;
+     draw(mouse.x,mouse.y)
+    })
+    function draw(x,y){
+     ctx.beginPath();
+     ctx.fillStyle = "red";
+     ctx.fillRect(x,y,10,10);
+     ctx.fill()
+     ctx.closePath();
+    }
+   </script>
   </body>
  </html>
 </html>
